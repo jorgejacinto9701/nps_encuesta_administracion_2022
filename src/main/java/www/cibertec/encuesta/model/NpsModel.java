@@ -554,8 +554,9 @@ public class NpsModel {
 				objRep.setPregunta01(rs.getInt(14));
 				objRep.setPregunta02(rs.getInt(15));
 				objRep.setPregunta03(rs.getInt(16));
-				objRep.setComentario(rs.getString(17));
-				objHor.setPrincipal(rs.getString(18));
+				objRep.setPregunta04(rs.getInt(17));
+				objRep.setComentario(rs.getString(18));
+				objHor.setPrincipal(rs.getString(19));
 				
 				objHor.setCurso(objCur);
 				objHor.setDocente(objDoc);

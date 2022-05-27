@@ -67,14 +67,14 @@ public class ReporteAcademicoDocenteAction extends ActionSupport {
 				"Sección", "Grupo", "Modalidad", "Tipo de Clase", "Encuesta", "Alumno","Promedio", 
 				"P1", "P2", "P3", "P4", "P5", "P6", "P7",
 				"P8", "P9", "P10", "P11", "P12", "P13","P14","P15", 
-				"Preg. Laureate 1", "Preg. Laureate 2", "Preg. Laureate 3",	"Comentario" };
+				"Preg. Laureate 1", "Preg. Laureate 2", "Preg. Laureate 3",	"Preg. Laureate 4",	"Comentario" };
 		
 		int[] columnWith_sheet_1 = { 
 				4000, 4000, 15000, 15000, 4000,
 				4000, 4000, 5000, 5000,5000, 4000, 4000, 
 				2000, 2000, 2000, 2000, 2000, 2000,	2000, 
 				2000, 2000, 2000, 2000, 2000, 2000, 2000,2000, 
-				6000, 6000, 6000, 40000 };
+				6000, 6000, 6000, 6000, 40000 };
 		
 		String[] columnText_sheet_2 = { 
 				"Id Horario","Sede", "Curso", "Nombre el curso", "Nombre del docente","Principal",
@@ -232,7 +232,8 @@ public class ReporteAcademicoDocenteAction extends ActionSupport {
 					filaX.createCell(27).setCellValue(bean.getPregunta01());
 					filaX.createCell(28).setCellValue(bean.getPregunta02());
 					filaX.createCell(29).setCellValue(bean.getPregunta03());
-					filaX.createCell(30).setCellValue(bean.getComentario());
+					filaX.createCell(30).setCellValue(bean.getPregunta04());
+					filaX.createCell(31).setCellValue(bean.getComentario());
 					
 				}
 

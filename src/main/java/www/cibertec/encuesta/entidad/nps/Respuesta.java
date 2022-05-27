@@ -22,6 +22,7 @@ public class Respuesta implements Serializable{
 	private int pregunta01;
 	private int pregunta02;
 	private int pregunta03;
+	private int pregunta04;
 	private Date fechaRegistro;
 	private String[] preguntas = new String[15];
 	
