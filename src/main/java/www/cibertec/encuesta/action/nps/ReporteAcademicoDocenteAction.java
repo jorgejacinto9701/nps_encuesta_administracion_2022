@@ -359,14 +359,20 @@ public class ReporteAcademicoDocenteAction extends ActionSupport {
 				int universo = 0;
 				double sp = 0;
 				double porcentaje = 0;
-				for (ReporteAcademicoDocente p : principales) {
+				externo:for (ReporteAcademicoDocente p : principales) {
 					encuestados = 0;
 					sp = 0.0;
 					universo = 0;
 					porcentaje = 0.0;
 					
 					for (ReporteAcademicoDocente r1 : listaTotal) {
-						if ( p.getIdCurso().equals(r1.getIdCurso()) &&  p.getPrincipal().equals(r1.getPrincipal()) &&  p.getTipoclase().equals(r1.getTipoclase()) &&  p.getDocente().equals(r1.getDocente()) ) {
+						if (p.getTipoclase() == null || r1.getTipoclase() == null) {
+							break externo;
+						}
+						if ( p.getIdCurso().equals(r1.getIdCurso()) 
+								&&  p.getPrincipal().equals(r1.getPrincipal()) 
+								&&  p.getTipoclase().equals(r1.getTipoclase()) 
+								&&  p.getDocente().equals(r1.getDocente()) ) {
 							universo += r1.getUniverso();
 							encuestados += r1.getEncuestados();
 							sp += (r1.getEncuestados() * r1.getPromedio());
@@ -747,6 +753,7 @@ public class ReporteAcademicoDocenteAction extends ActionSupport {
 			log.info("Size : " + fileSize );
 	
 		} catch (Exception e) {
+			e.printStackTrace();
 			log.info(e.getLocalizedMessage());
 			log.info(e.getMessage());
 			e.printStackTrace();
