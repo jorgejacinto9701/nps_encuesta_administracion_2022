@@ -343,7 +343,14 @@ public class ReporteAcademicoDocenteAction extends ActionSupport {
 				celdaCentrar.setAlignment(HSSFCellStyle.ALIGN_CENTER);
 				celdaCentrar.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
 
+				//List<ReporteAcademicoDocente> listaTotal1 = model.listaPromedioSeccionesPorSede(idSede,  Constantes.TOPE_ENCUESTAS_TOTALES);
 				List<ReporteAcademicoDocente> listaTotal = model.listaPromedioSeccionesPorSede(idSede,  Constantes.TOPE_ENCUESTAS_TOTALES);
+				/*for (ReporteAcademicoDocente x : listaTotal1) {
+					if (x.getDocente().equals("Yactayo Quiñones, Christian Ederlin")) {
+						listaTotal.add(x);
+					}
+				}*/
+				
 				List<ReporteAcademicoDocente> lista = new ArrayList<ReporteAcademicoDocente>();
 				List<ReporteAcademicoDocente> listaPrincipales = new ArrayList<ReporteAcademicoDocente>();
 				List<ReporteAcademicoDocente> principales = new ArrayList<ReporteAcademicoDocente>(); 
@@ -372,7 +379,8 @@ public class ReporteAcademicoDocenteAction extends ActionSupport {
 						if ( p.getIdCurso().equals(r1.getIdCurso()) 
 								&&  p.getPrincipal().equals(r1.getPrincipal()) 
 								&&  p.getTipoclase().equals(r1.getTipoclase()) 
-								&&  p.getDocente().equals(r1.getDocente()) ) {
+								&&  p.getDocente().equals(r1.getDocente()) 
+								&&  p.getGrupo()== r1.getGrupo() ) {
 							universo += r1.getUniverso();
 							encuestados += r1.getEncuestados();
 							sp += (r1.getEncuestados() * r1.getPromedio());
@@ -480,7 +488,11 @@ public class ReporteAcademicoDocenteAction extends ActionSupport {
 					porcentaje = 0.0;
 					
 					for (ReporteAcademicoDocente r1 : listaTotal) {
-						if ( p.getIdCurso().equals(r1.getIdCurso()) &&  p.getPrincipal().equals(r1.getPrincipal()) &&  p.getTipoclase().equals(r1.getTipoclase()) &&  p.getDocente().equals(r1.getDocente()) ) {
+						if ( p.getIdCurso().equals(r1.getIdCurso()) &&  
+							 p.getPrincipal().equals(r1.getPrincipal()) &&  
+							 p.getTipoclase().equals(r1.getTipoclase()) &&  
+							 p.getDocente().equals(r1.getDocente())&& 
+							 p.getGrupo()== r1.getGrupo()) {
 							universo += r1.getUniverso();
 							encuestados += r1.getEncuestados();
 							sp += (r1.getEncuestados() * r1.getPromedio());
@@ -653,7 +665,11 @@ public class ReporteAcademicoDocenteAction extends ActionSupport {
 					porcentaje = 0.0;
 					
 					for (ReporteAcademicoDocente r1 : listaTotal) {
-						if ( p.getIdCurso().equals(r1.getIdCurso()) &&  p.getPrincipal().equals(r1.getPrincipal()) &&  p.getTipoclase().equals(r1.getTipoclase()) &&  p.getDocente().equals(r1.getDocente()) ) {
+						if ( p.getIdCurso().equals(r1.getIdCurso()) &&  
+							 p.getPrincipal().equals(r1.getPrincipal()) &&  
+							 p.getTipoclase().equals(r1.getTipoclase()) &&  
+							 p.getDocente().equals(r1.getDocente()) && 
+							 p.getGrupo()== r1.getGrupo() ) {
 							universo += r1.getUniverso();
 							encuestados += r1.getEncuestados();
 							sp += (r1.getEncuestados() * r1.getPromedio());
